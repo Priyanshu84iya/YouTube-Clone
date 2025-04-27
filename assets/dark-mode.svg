@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes darkmode {
+        0%, 100% { fill: #f8f8f8; }
+        50% { fill: #1a1a1a; }
+      }
+      @keyframes moon {
+        0%, 100% { opacity: 0; transform: translateX(20px); }
+        50% { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes sun {
+        0%, 100% { opacity: 1; transform: translateX(0); }
+        50% { opacity: 0; transform: translateX(-20px); }
+      }
+      .bg {
+        animation: darkmode 5s infinite;
+      }
+      .rotate {
+        animation: rotate 10s linear infinite;
+        transform-origin: center;
+      }
+      .moon {
+        animation: moon 5s infinite;
+      }
+      .sun {
+        animation: sun 5s infinite;
+      }
+      .text-light {
+        animation: sun 5s infinite;
+      }
+      .text-dark {
+        animation: moon 5s infinite;
+      }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="400" height="200" rx="20" ry="20"/>
+  
+  <!-- Toggle container -->
+  <rect x="130" y="60" width="140" height="60" rx="30" fill="#444" stroke="#777" stroke-width="2"/>
+  
+  <!-- Toggle switch -->
+  <g class="rotate">
+    <circle cx="160" cy="90" r="25" fill="yellow" class="sun"/>
+    <circle cx="240" cy="90" r="25" fill="#DDD" class="moon"/>
+    <path class="moon" d="M 250 80 C 250 85 245 90 235 90 C 225 90 220 85 220 75 C 225 80 230 80 235 77 C 240 74 245 77 250 80" fill="#333" />
+  </g>
+  
+  <!-- Text -->
+  <text x="95" y="150" font-family="Arial" font-size="18" fill="#333" text-anchor="end" class="text-light">Light Mode</text>
+  <text x="310" y="150" font-family="Arial" font-size="18" fill="#FFF" text-anchor="start" class="text-dark">Dark Mode</text>
+</svg>
