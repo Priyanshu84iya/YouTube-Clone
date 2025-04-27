@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Clone</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <i class="fas fa-bars" id="menu-icon"></i>
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </div>
+        </div>        <div class="search-container">
+            <form action="" id="search-form">
+                <input type="text" placeholder="Search" id="search-input">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <i class="fas fa-microphone"></i>
+        </div>        <div class="user-options">
+            <i class="fas fa-video"></i>
+            <i class="fas fa-th"></i>
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-moon" id="theme-toggle"></i>
+            <div class="user-avatar">P</div>
+        </div>
+    </header>
+
+    <div class="content-container">
+        <aside id="sidebar">            <div class="sidebar-item active" data-section="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>            <div class="sidebar-item" data-section="explore">
+                <i class="fas fa-compass"></i>
+                <span>Explore</span>
+            </div>            <div class="sidebar-item" data-section="subscriptions">
+                <i class="fas fa-video"></i>
+                <span>Subscriptions</span>
+            </div>            <div class="sidebar-item" data-section="library">
+                <i class="fas fa-photo-video"></i>
+                <span>Library</span>
+            </div>            <div class="sidebar-item" data-section="history">
+                <i class="fas fa-history"></i>
+                <span>History</span>
+            </div><div class="sidebar-item" data-section="watch-later">
+                <i class="fas fa-clock"></i>
+                <span>Watch later</span>
+                <span class="count">0</span>
+            </div>            <div class="sidebar-item" data-section="liked">
+                <i class="fas fa-thumbs-up"></i>
+                <span>Liked videos</span>
+            </div>
+        </aside>
+
+        <main>
+            <div class="category-buttons">
+                <button class="category-button active">All</button>
+                <button class="category-button">Anime</button>
+                <button class="category-button">Music</button>
+                <button class="category-button">Edits</button>
+                <button class="category-button">AMVs</button>
+                <button class="category-button">VFX</button>
+                <button class="category-button">3D</button>
+            </div>
+
+            <div class="videos-container" id="videos-container">
+                <!-- Videos will be loaded here dynamically by JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <div id="video-player-modal" class="modal">
+        <div class="modal-content">            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 id="video-title" title="Click to edit title">Video Title</h2>
+                <small class="edit-hint">(Click title to edit)</small>
+            </div>            <div class="modal-body">
+                <div class="video-player-container">
+                    <video id="video-player" controls></video>
+                    <div class="video-loading" id="video-loading">
+                        <div class="spinner"></div>
+                        <p>Loading video...</p>
+                    </div>
+                    <button id="fullscreen-btn" class="fullscreen-button">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+                <div class="video-info">
+                    <div class="video-stats">
+                        <p id="video-views">123,456 views • April 27, 2025</p>
+                    </div>                    <div class="video-actions">
+                        <button><i class="fas fa-thumbs-up"></i> <span>Like</span></button>
+                        <button><i class="fas fa-thumbs-down"></i> <span>Dislike</span></button>
+                        <button><i class="fas fa-share"></i> <span>Share</span></button>
+                        <button id="save-button"><i class="fas fa-clock"></i> <span>Watch Later</span></button>
+                        <button><i class="fas fa-ellipsis-h"></i></button>
+                    </div>
+                </div>
+                <div class="channel-info">
+                    <div class="channel-logo">C</div>
+                    <div class="channel-details">
+                        <h3 id="channel-name">Channel Name</h3>
+                        <p>1.2M subscribers</p>
+                    </div>
+                    <button class="subscribe-btn">SUBSCRIBE</button>
+                </div>
+                <div class="video-description">
+                    <p id="video-description-text">Video description will be displayed here...</p>
+                </div>
+                <div class="comments-section">
+                    <h3>Comments</h3>
+                    <div class="comment">
+                        <div class="comment-avatar">U</div>
+                        <div class="comment-content">
+                            <p class="comment-author">User1 <span class="comment-time">2 days ago</span></p>
+                            <p class="comment-text">Great video! I love it!</p>
+                            <div class="comment-actions">
+                                <button><i class="fas fa-thumbs-up"></i> 24</button>
+                                <button><i class="fas fa-thumbs-down"></i></button>
+                                <button>REPLY</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-avatar">U</div>
+                        <div class="comment-content">
+                            <p class="comment-author">User2 <span class="comment-time">1 week ago</span></p>
+                            <p class="comment-text">Amazing editing! What software do you use?</p>
+                            <div class="comment-actions">
+                                <button><i class="fas fa-thumbs-up"></i> 15</button>
+                                <button><i class="fas fa-thumbs-down"></i></button>
+                                <button>REPLY</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
